@@ -33,6 +33,7 @@ class _QuizPageState extends State<QuizPage> {
     'A slug\'s blood is green.'
   ];
 
+  List<bool> answer = [false, true, true];
   int questionNumber = 0;
 
   @override
@@ -71,6 +72,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnswer = answer[questionNumber];
+                if (correctAnswer == true) {
+                  print('user got right');
+                } else {
+                  print('user got it wrong');
+                }
+
                 setState(() {
                   questionNumber++;
                 });
@@ -92,6 +100,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnswer = answer[questionNumber];
+                if (correctAnswer == false) {
+                  print('user got right');
+                } else {
+                  print('user got it wrong');
+                }
+
                 //The user picked false.
                 setState(() {
                   questionNumber--;
